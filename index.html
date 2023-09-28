@@ -34,8 +34,10 @@
     <div id="passwordDialog" class="hidden">
         <h3>Password Strength: <span id="strengthIndicator">Weak</span></h3>
         <div class="inputGroup">
-            <label for="passwordLengthSlider">Password Length: <span id="passwordLengthDisplay">8</span> characters</label>
-            <input type="range" min="8" max="128" value="8" id="passwordLengthSlider">
+            <label for="passwordLengthSlider">Password Length: 
+              <input type="range" min="8" max="128" value="8" id="passwordLengthSlider">
+              <span id="passwordLengthDisplay">8</span> characters</label>
+            
         </div>
         <div class="inputGroup">
             <button id="lowercaseButton" class="toggleButton" data-type="lowercase">Lowercase</button>
