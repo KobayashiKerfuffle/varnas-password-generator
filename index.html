@@ -29,6 +29,33 @@
         </div>
       </div>
     </div>
+
+    <!-- Password Generator Dialog -->
+    <div id="passwordDialog" class="hidden">
+        <h3>Password Strength: <span id="strengthIndicator">Weak</span></h3>
+        <div class="inputGroup">
+            <label for="passwordLengthSlider">Password Length: <span id="passwordLengthDisplay">8</span> characters</label>
+            <input type="range" min="8" max="128" value="8" id="passwordLengthSlider">
+        </div>
+        <div class="inputGroup">
+            <button id="lowercaseButton" class="toggleButton" data-type="lowercase">Lowercase</button>
+            <button id="uppercaseButton" class="toggleButton" data-type="uppercase">Uppercase</button>
+            <button id="numericButton" class="toggleButton" data-type="numeric">Numeric</button>
+            <button id="specialButton" class="toggleButton" data-type="special">Special Characters</button>
+        </div>
+        <div class="inputGroup">
+            <button id="submit">Submit</button>
+            <button id="cancel">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Error Dialog -->
+    <div id="errorDialog" class="hidden">
+        <h3>Error!</h3>
+        <p>At least one character type needs to be selected in order to generate a password. Please click ok to try again.</p>
+        <button id="errorOkButton">Ok</button>
+    </div>
+
     <script src="./assets/js/script.js"></script>
   </body>
 </html>
