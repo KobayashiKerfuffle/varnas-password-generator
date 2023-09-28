@@ -1,3 +1,4 @@
+/* Global styles */
 *,
 *::before,
 *::after {
@@ -17,12 +18,14 @@ body {
   background-color: #f9fbfd;
 }
 
+/* Wrapper */
 .wrapper {
   padding-top: 30px;
   padding-left: 20px;
   padding-right: 20px;
 }
 
+/* Header styles */
 header {
   text-align: center;
   padding: 20px;
@@ -30,10 +33,10 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
+/* Card styles */
 .card {
   background-color: hsl(0, 0%, 100%);
   border-radius: 5px;
-  border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
   color: hsl(206, 17%, 28%);
   font-size: 18px;
@@ -42,7 +45,8 @@ header {
   padding: 30px 40px;
 }
 
-.card-header::after {
+.card-header::after,
+.card-footer::before {
   content: " ";
   display: block;
   width: 100%;
@@ -58,25 +62,18 @@ header {
   text-align: center;
 }
 
-.card-footer::before {
-  content: " ";
-  display: block;
-  width: 100%;
-  background: #e7e9eb;
-  height: 2px;
-}
-
 .card-footer::after {
   content: " ";
   display: block;
   clear: both;
 }
 
+/* Button styles */
 .btn {
   border: none;
   background-color: hsl(360, 91%, 36%);
   border-radius: 25px;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px, rgba(0, 0, 0, 0.2) 0px 1px 1px 0px;
   color: hsl(0, 0%, 100%);
   display: inline-block;
   font-size: 22px;
@@ -96,41 +93,32 @@ button[disabled] {
   float: right;
 }
 
-.inputGroup button.toggleButton {
-  display: block; /* Makes the button take the full width of its container */
-  margin-bottom: 8px; /* Adds a small space below each button */
-}
-
+/* Password textarea styles */
 #password {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: none;
-  display: block;
-  width: 100%;
-  padding-top: 15px;
-  padding-left: 15px;
-  padding-right: 15px;
-  padding-bottom: 85px;
-  font-size: 1.2rem;
-  text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
   border: 2px dashed #c0c7cf;
   border-radius: 6px;
+  display: block;
+  font-size: 1.2rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px 15px 85px 15px;
   resize: none;
-  overflow: hidden;
+  text-align: center;
+  width: 100%;
 }
 
+/* Media queries for responsiveness */
 @media (max-width: 690px) {
-  .btn {
-    font-size: 1rem;
-    margin: 16px 0px 0px 0px;
-    padding: 10px 15px;
-  }
-
+  .btn,
   #password {
     font-size: 1rem;
+  }
+  .btn {
+    margin: 16px 0px 0px 0px;
+    padding: 10px 15px;
   }
 }
 
@@ -140,29 +128,53 @@ button[disabled] {
   }
 }
 
-/* Password Generator Dialog */
-#passwordDialog {
-  display: none;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
+/* Dialog styles */
+#passwordDialog,
+#errorDialog {
   background-color: #ffffff;
-  padding: 20px;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-  width: 80%;
+  display: none;
+  left: 50%;
   max-width: 500px;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
   z-index: 1000;
 }
 
-/* Toggle Slider Styles */
+.hidden {
+  display: none;
+}
+
+/* General input styles */
+.inputGroup {
+  margin: 20px 0;
+}
+
+/* Toggle button styles */
+.toggleButton {
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 5px;
+  padding: 5px 10px;
+}
+
+.toggleButton[data-selected="true"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+/* Toggle slider styles */
 .switch {
-  position: relative;
   display: inline-block;
-  width: 60px;
   height: 34px;
   margin-left: 10px;
+  position: relative;
+  width: 60px;
 }
 
 .switch input {
@@ -170,26 +182,26 @@ button[disabled] {
 }
 
 .slider {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   background-color: #ccc;
-  transition: .4s;
   border-radius: 34px;
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  transition: .4s;
 }
 
 .slider:before {
-  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  bottom: 4px;
   content: "";
   height: 26px;
-  width: 26px;
   left: 4px;
-  bottom: 4px;
-  background-color: white;
+  position: absolute;
   transition: .4s;
-  border-radius: 50%;
+  width: 26px;
 }
 
 input:checked + .slider {
@@ -201,49 +213,13 @@ input:checked + .slider:before {
 }
 
 .sliderGroup {
-  margin-bottom: 15px;
+  align-items: center;
   display: flex;
-  align-items: center;  /* Vertically center align items */
-  justify-content: space-between;  /* Put maximum space between the label and the switch */
+  justify-content: space-between;
+  margin-bottom: 15px;
 }
 
 .switch-container {
   display: inline-block;
-}
-
-#errorDialog {
-  display: none;
-  position: fixed;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0,0,0,0.3);
-  width: 80%;
-  max-width: 500px;
-  z-index: 1000;
-}
-
-.hidden {
-  display: none;
-}
-
-.inputGroup {
-  margin: 20px 0;
-}
-
-.toggleButton {
-  padding: 5px 10px;
-  margin: 5px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.toggleButton[data-selected="true"] {
-  background-color: #4caf50;
-  color: white;
 }
 

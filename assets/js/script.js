@@ -1,4 +1,4 @@
-// Variables
+// Variables for DOM Elements
 var generateBtn = document.querySelector("#generate");
 var passwordDialog = document.querySelector("#passwordDialog");
 var passwordStrengthIndicator = document.querySelector("#strengthIndicator");
@@ -13,6 +13,7 @@ var cancelButton = document.querySelector("#cancel");
 var errorDialog = document.querySelector("#errorDialog");
 var errorOkButton = document.querySelector("#errorOkButton");
 
+// Character sets
 const charset = {
   lowercase: "abcdefghijklmnopqrstuvwxyz",
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -20,11 +21,12 @@ const charset = {
   special: "!@#$%^&*()-_=+[]{}|;:,.<>?/"
 };
 
-// Check if at least one character type is selected
+// Function to check if at least one character type is selected
 function isAnyCharTypeSelected() {
   return [lowercaseSlider, uppercaseSlider, numericSlider, specialSlider].some(slider => slider.checked);
 }
 
+// Function to generate the password
 function generatePassword() {
   let characters = '';
   let password = '';
@@ -35,12 +37,13 @@ function generatePassword() {
   if (specialSlider.checked) characters += charset.special;
 
   for (let i = 0; i < passwordLengthSlider.value; i++) {
-      password += characters[Math.floor(Math.random() * characters.length)];
+    password += characters[Math.floor(Math.random() * characters.length)];
   }
 
   return password;
 }
 
+// Function to calculate password strength based on selected criteria
 function calculatePasswordStrength() {
   let strength = 0;
 
@@ -53,14 +56,15 @@ function calculatePasswordStrength() {
   return strength;
 }
 
+// Function to update the password strength indicator based on the calculated strength
 function updateStrengthIndicator() {
   const strengths = ["Very Weak", "Weak", "Average", "Strong", "Very Strong"];
   const strength = calculatePasswordStrength();
-  console.log("Password Strength Value:", strength);
-  
+
   passwordStrengthIndicator.innerText = strengths[Math.min(strength, strengths.length - 1)];
 }
 
+// Event Listeners
 generateBtn.addEventListener("click", function() {
   passwordDialog.style.display = "block";
   updateStrengthIndicator();

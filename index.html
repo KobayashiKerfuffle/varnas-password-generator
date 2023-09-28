@@ -1,24 +1,47 @@
+<!-- Declare the document type as HTML5 -->
 <!DOCTYPE html>
+
+<!-- Start of HTML document, with English as the language -->
 <html lang="en">
 
+<!-- Head section containing metadata about the document -->
 <head>
+    <!-- Character encoding declaration -->
     <meta charset="UTF-8" />
+
+    <!-- Configure viewport for responsive design, set to device's width and no initial zoom -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Tell IE to use the latest rendering engine -->
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <!-- Set the document title shown in browser's title bar or tab -->
     <title>Password Generator</title>
+
+    <!-- Link to the external CSS file for styling -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 
+<!-- Start of the body content of the page -->
 <body>
+    <!-- A wrapper div that might be used for centering or setting a max-width for the entire content -->
     <div class="wrapper">
+      
+      <!-- Header section for the main title -->
       <header>
+        <!-- The main title for the page -->
         <h1>Password Generator</h1>
       </header>
+      
+      <!-- A card design that likely contains the main feature of the site -->
       <div class="card">
+        <!-- Header for the card -->
         <div class="card-header">
           <h2>Generate a Password</h2>
         </div>
+        <!-- Main content/body of the card -->
         <div class="card-body">
+          <!-- A readonly textarea to display the generated password with a placeholder and accessibility label -->
           <textarea
             readonly
             id="password"
@@ -26,23 +49,32 @@
             aria-label="Generated Password"
           ></textarea>
         </div>
+        <!-- Footer of the card containing a button to trigger password generation -->
         <div class="card-footer">
           <button id="generate" class="btn">Generate Password</button>
         </div>
       </div>
     </div>
 
-    <!-- Password Generator Dialog -->
+    <!-- A dialog/pop-up for generating a password -->
     <div id="passwordDialog" class="hidden">
+      <!-- Title for the dialog indicating the strength of the password -->
       <h3>Password Strength: <span id="strengthIndicator">Weak</span></h3>
+      
+      <!-- Grouping of input controls -->
       <div class="inputGroup">
+          <!-- A slider input to determine the length of the password -->
           <label for="passwordLengthSlider">Password Length: 
               <input type="range" min="8" max="128" value="8" id="passwordLengthSlider">
               <span id="passwordLengthDisplay">8</span> characters</label>
       </div>
+
+      <!-- Grouping of input controls to determine the type of characters in the password -->
       <div class="inputGroup">
+          <!-- Option to include lowercase characters -->
           <div class="sliderGroup">
               <label>Include Lowercase Characters?</label>
+              <!-- A switch (styled checkbox) to toggle inclusion -->
               <div class="switch-container">
                   <label class="switch">
                       <input type="checkbox" id="lowercaseSlider" data-type="lowercase">
@@ -51,8 +83,10 @@
               </div>
           </div>
 
+          <!-- Option to include uppercase characters -->
           <div class="sliderGroup">
               <label>Include Uppercase Characters?</label>
+              <!-- A switch (styled checkbox) to toggle inclusion -->
               <div class="switch-container">
                   <label class="switch">
                       <input type="checkbox" id="uppercaseSlider" data-type="uppercase">
@@ -61,8 +95,10 @@
               </div>
           </div>
 
+          <!-- Option to include numeric characters -->
           <div class="sliderGroup">
               <label>Include Numeric Characters?</label>
+              <!-- A switch (styled checkbox) to toggle inclusion -->
               <div class="switch-container">
                   <label class="switch">
                       <input type="checkbox" id="numericSlider" data-type="numeric">
@@ -71,8 +107,10 @@
               </div>
           </div>
 
+          <!-- Option to include special characters -->
           <div class="sliderGroup">
               <label>Include Special Characters?</label>
+              <!-- A switch (styled checkbox) to toggle inclusion -->
               <div class="switch-container">
                   <label class="switch">
                       <input type="checkbox" id="specialSlider" data-type="special">
@@ -82,19 +120,27 @@
           </div>
       </div>
 
+      <!-- Action buttons for the dialog -->
       <div class="inputGroup">
+          <!-- Button to confirm and generate a password -->
           <button id="submit">Submit</button>
+          <!-- Button to cancel/close the dialog -->
           <button id="cancel">Cancel</button>
       </div>
     </div>
 
-    <!-- Error Dialog -->
+    <!-- A dialog/pop-up to show error messages -->
     <div id="errorDialog" class="hidden">
+        <!-- Error title -->
         <h3>Error!</h3>
+        <!-- Error message -->
         <p>At least one character type needs to be selected in order to generate a password. Please click ok to try again.</p>
+        <!-- Button to close the error dialog -->
         <button id="errorOkButton">Ok</button>
     </div>
 
+    <!-- Link to the external JavaScript file to provide functionality -->
     <script src="./assets/js/script.js"></script>
 </body>
+<!-- End of the HTML document -->
 </html>
