@@ -4,10 +4,10 @@ var passwordDialog = document.querySelector("#passwordDialog");
 var passwordStrengthIndicator = document.querySelector("#strengthIndicator");
 var passwordLengthDisplay = document.querySelector("#passwordLengthDisplay");
 var passwordLengthSlider = document.querySelector("#passwordLengthSlider");
-var lowercaseButton = document.querySelector("#lowercaseButton");
-var uppercaseButton = document.querySelector("#uppercaseButton");
-var numericButton = document.querySelector("#numericButton");
-var specialButton = document.querySelector("#specialButton");
+var lowercaseSlider = document.querySelector("#lowercaseSlider");
+var uppercaseSlider = document.querySelector("#uppercaseSlider");
+var numericSlider = document.querySelector("#numericSlider");
+var specialSlider = document.querySelector("#specialSlider");
 var submitButton = document.querySelector("#submit");
 var cancelButton = document.querySelector("#cancel");
 var errorDialog = document.querySelector("#errorDialog");
@@ -16,26 +16,26 @@ var errorOkButton = document.querySelector("#errorOkButton");
 const charset = {
   lowercase: "abcdefghijklmnopqrstuvwxyz",
   uppercase: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-  numbers: "0123456789",
+  numeric: "0123456789",
   special: "!@#$%^&*()-_=+[]{}|;:,.<>?/"
 };
 
 // Check if at least one character type is selected
 function isAnyCharTypeSelected() {
-  return [lowercaseButton, uppercaseButton, numericButton, specialButton].some(button => button.dataset.selected === "true");
+  return [lowercaseSlider, uppercaseSlider, numericSlider, specialSlider].some(slider => slider.checked);
 }
 
 function generatePassword() {
   let characters = '';
   let password = '';
 
-  if (lowercaseButton.dataset.selected === "true") characters += charset.lowercase;
-  if (uppercaseButton.dataset.selected === "true") characters += charset.uppercase;
-  if (numericButton.dataset.selected === "true") characters += charset.numbers;
-  if (specialButton.dataset.selected === "true") characters += charset.special;
+  if (lowercaseSlider.checked) characters += charset.lowercase;
+  if (uppercaseSlider.checked) characters += charset.uppercase;
+  if (numericSlider.checked) characters += charset.numbers;
+  if (specialSlider.checked) characters += charset.special;
 
   for (let i = 0; i < passwordLengthSlider.value; i++) {
-    password += characters[Math.floor(Math.random() * characters.length)];
+      password += characters[Math.floor(Math.random() * characters.length)];
   }
 
   return password;
@@ -44,10 +44,10 @@ function generatePassword() {
 function calculatePasswordStrength() {
   let strength = 0;
 
-  if (lowercaseButton.dataset.selected === "true") strength++;
-  if (uppercaseButton.dataset.selected === "true") strength++;
-  if (numericButton.dataset.selected === "true") strength++;
-  if (specialButton.dataset.selected === "true") strength++;
+  if (lowercaseSlider.checked) strength++;
+  if (uppercaseSlider.checked) strength++;
+  if (numericSlider.checked) strength++;
+  if (specialSlider.checked) strength++;
   if (passwordLengthSlider.value >= 15) strength++;
 
   return strength;
@@ -66,11 +66,8 @@ generateBtn.addEventListener("click", function() {
   updateStrengthIndicator();
 });
 
-[lowercaseButton, uppercaseButton, numericButton, specialButton].forEach(button => {
-  button.addEventListener("click", function() {
-    button.dataset.selected = button.dataset.selected === "true" ? "false" : "true";
-    updateStrengthIndicator();
-  });
+[lowercaseSlider, uppercaseSlider, numericSlider, specialSlider].forEach(slider => {
+  slider.addEventListener("change", updateStrengthIndicator);
 });
 
 passwordLengthSlider.addEventListener("input", function() {

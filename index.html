@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Password Generator</title>
     <link rel="stylesheet" href="./assets/css/style.css" />
-  </head>
-  <body>
+</head>
+
+<body>
     <div class="wrapper">
       <header>
         <h1>Password Generator</h1>
@@ -32,24 +34,52 @@
 
     <!-- Password Generator Dialog -->
     <div id="passwordDialog" class="hidden">
-        <h3>Password Strength: <span id="strengthIndicator">Weak</span></h3>
-        <div class="inputGroup">
-            <label for="passwordLengthSlider">Password Length: 
+      <h3>Password Strength: <span id="strengthIndicator">Weak</span></h3>
+      <div class="inputGroup">
+          <label for="passwordLengthSlider">Password Length: 
               <input type="range" min="8" max="128" value="8" id="passwordLengthSlider">
               <span id="passwordLengthDisplay">8</span> characters</label>
-            
-        </div>
-        <div class="inputGroup">
-            <button id="lowercaseButton" class="toggleButton" data-type="lowercase">Lowercase</button>
-            <button id="uppercaseButton" class="toggleButton" data-type="uppercase">Uppercase</button>
-            <button id="numericButton" class="toggleButton" data-type="numeric">Numeric</button>
-            <button id="specialButton" class="toggleButton" data-type="special">Special Characters</button>
-        </div>
-        <div class="inputGroup">
-            <button id="submit">Submit</button>
-            <button id="cancel">Cancel</button>
-        </div>
-    </div>
+
+      </div>
+      <div class="inputGroup">
+          <div class="sliderGroup">
+              <label>Lowercase</label>
+              <label class="switch">
+                  <input type="checkbox" id="lowercaseSlider" data-type="lowercase">
+                  <span class="slider round"></span>
+              </label>
+          </div>
+
+          <div class="sliderGroup">
+              <label>Uppercase</label>
+              <label class="switch">
+                  <input type="checkbox" id="uppercaseSlider" data-type="uppercase">
+                  <span class="slider round"></span>
+              </label>
+          </div>
+
+          <div class="sliderGroup">
+              <label>Numeric</label>
+              <label class="switch">
+                  <input type="checkbox" id="numericSlider" data-type="numeric">
+                  <span class="slider round"></span>
+              </label>
+          </div>
+
+          <div class="sliderGroup">
+              <label>Special Characters</label>
+              <label class="switch">
+                  <input type="checkbox" id="specialSlider" data-type="special">
+                  <span class="slider round"></span>
+              </label>
+          </div>
+      </div>
+
+      <div class="inputGroup">
+          <button id="submit">Submit</button>
+          <button id="cancel">Cancel</button>
+      </div>
+  </div>
 
     <!-- Error Dialog -->
     <div id="errorDialog" class="hidden">
