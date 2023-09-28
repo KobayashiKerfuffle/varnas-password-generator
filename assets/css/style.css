@@ -202,6 +202,13 @@ input:checked + .slider:before {
 
 .sliderGroup {
   margin-bottom: 15px;
+  display: flex;
+  align-items: center;  /* Vertically center align items */
+  justify-content: space-between;  /* Put maximum space between the label and the switch */
+}
+
+.switch-container {
+  display: inline-block;
 }
 
 #errorDialog {
@@ -224,7 +231,7 @@ input:checked + .slider:before {
 }
 
 .inputGroup {
-  margin: 10px 0;
+  margin: 20px 0;
 }
 
 .toggleButton {

@@ -39,39 +39,46 @@
           <label for="passwordLengthSlider">Password Length: 
               <input type="range" min="8" max="128" value="8" id="passwordLengthSlider">
               <span id="passwordLengthDisplay">8</span> characters</label>
-
       </div>
       <div class="inputGroup">
           <div class="sliderGroup">
-              <label>Lowercase</label>
-              <label class="switch">
-                  <input type="checkbox" id="lowercaseSlider" data-type="lowercase">
-                  <span class="slider round"></span>
-              </label>
+              <label>Include Lowercase Characters?</label>
+              <div class="switch-container">
+                  <label class="switch">
+                      <input type="checkbox" id="lowercaseSlider" data-type="lowercase">
+                      <span class="slider round"></span>
+                  </label>
+              </div>
           </div>
 
           <div class="sliderGroup">
-              <label>Uppercase</label>
-              <label class="switch">
-                  <input type="checkbox" id="uppercaseSlider" data-type="uppercase">
-                  <span class="slider round"></span>
-              </label>
+              <label>Include Uppercase Characters?</label>
+              <div class="switch-container">
+                  <label class="switch">
+                      <input type="checkbox" id="uppercaseSlider" data-type="uppercase">
+                      <span class="slider round"></span>
+                  </label>
+              </div>
           </div>
 
           <div class="sliderGroup">
-              <label>Numeric</label>
-              <label class="switch">
-                  <input type="checkbox" id="numericSlider" data-type="numeric">
-                  <span class="slider round"></span>
-              </label>
+              <label>Include Numeric Characters?</label>
+              <div class="switch-container">
+                  <label class="switch">
+                      <input type="checkbox" id="numericSlider" data-type="numeric">
+                      <span class="slider round"></span>
+                  </label>
+              </div>
           </div>
 
           <div class="sliderGroup">
-              <label>Special Characters</label>
-              <label class="switch">
-                  <input type="checkbox" id="specialSlider" data-type="special">
-                  <span class="slider round"></span>
-              </label>
+              <label>Include Special Characters?</label>
+              <div class="switch-container">
+                  <label class="switch">
+                      <input type="checkbox" id="specialSlider" data-type="special">
+                      <span class="slider round"></span>
+                  </label>
+              </div>
           </div>
       </div>
 
@@ -79,7 +86,7 @@
           <button id="submit">Submit</button>
           <button id="cancel">Cancel</button>
       </div>
-  </div>
+    </div>
 
     <!-- Error Dialog -->
     <div id="errorDialog" class="hidden">
@@ -89,5 +96,5 @@
     </div>
 
     <script src="./assets/js/script.js"></script>
-  </body>
+</body>
 </html>
